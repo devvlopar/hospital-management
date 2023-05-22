@@ -1,0 +1,75 @@
+/* Signup */
+html {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  
+  *, *::after, *::before {
+    -webkit-box-sizing: inherit;
+            box-sizing: inherit;
+  }
+  
+  body {
+    font-family: Arial , Sans-serif;
+    background-color: #478CCC;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .signup {
+    margin: 50px auto;
+    background: #F5F7F8;
+    max-width: 430px;
+    max-height: 900px;
+    padding: 50px;
+    color: #3E4A55;
+    border-radius: 5px;
+  }
+  
+  .signup-text {
+    display: block;
+    text-align: center;
+    font-size: 25px;
+  }
+  
+  .signup form {
+    margin-top: 50px;
+  }
+  
+  .signup form input {
+    display: block;
+    margin: 20px;
+  }
+  
+  .signup form label {
+    text-align: left;
+    margin: 20px;
+  }
+  
+  .signup form input[type=text], .signup form input[type=password], .signup form input[type=email] .signup form input[type=tel] {
+    width: 90%;
+    height: 40px;
+    border-radius: 2px;
+    border: 1px solid #EBEEF0;
+    padding: 10px;
+  }
+  
+  .signup form .agree {
+    margin-left: 25px;
+    font-size: 16px;
+  }
+  
+  .signup form .agree input[type=checkbox] {
+    display: inline;
+    margin: 0 !important;
+  }
+  
+  .signup form input[type=submit] {
+    background-color: #478CCC;
+    width: 90%;
+    height: 40px;
+    color: white;
+    border: 1px solid currentColor;
+    border-radius: 5px;
+  }
+  /*# sourceMappingURL=sign.css.map */

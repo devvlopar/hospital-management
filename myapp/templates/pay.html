@@ -1,0 +1,141 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Life Care</title>
+	<style>
+	* {
+		box-sizing: border-box;
+		padding: 0px;
+		margin: 0px;
+		font-family: cursive;
+	}
+	html,
+	body {
+		height: 100%;
+	}
+	body {
+		background-color: #f1f5f8;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.card {
+		background-color: white;
+		padding: 25px;
+		border: 1px solid #bbbbbb;
+		border-radius: 5px;
+		box-shadow: 1px 1px 10px 0px rgb(0 0 0 / 25%);
+	}
+	.title {
+		text-align: center;
+		letter-spacing: 1px;
+	}
+	.muted {
+		color: #8e7f7f;
+		display: block;
+		margin-bottom: 10px;
+		text-align: center;
+	}
+	.btn_container {
+		padding: 20px;
+		text-align: center;
+	}
+	.btn {
+		border-radius: 4px;
+		cursor: pointer;
+		padding: 4px 8px;
+		background-color:#009CFF;
+		color: white;
+		font-size: 1.2em;
+		font-weight: 600;
+		letter-spacing: 1px;
+	}
+	</style>
+</head>
+<body>
+	<div class="card">
+	<h1 class="title">Life Care </h1>
+	<div class="container mt-5 mb-5">
+<div class="row d-flex justify-content-center">
+<div class="col-md-8">
+<br>
+<br>
+
+	<tr>
+		<td>
+		<div class="py-2"> <span class="d-block text-muted">Patient Name: {{ap.patient.fname}} {{ap.patient.lname}}</span> </div>
+		</td>
+		<br>
+		<td>
+		<div class="py-2"> <span class="d-block text-muted">Doctor name: {{ap.doctor.doctorname}}</span>  </div>
+		</td>
+		<br>
+		<td>
+		<div class="py-2"> <span class="d-block text-muted">Appointment Date: {{ap.date}}</span>  </div>
+		</td>
+		<td>
+		<br>
+			<td>
+				<div class="py-2"> <span class="d-block text-muted">Appointment time: {{ap.time}}</span>  </div>
+				</td>
+				<br>
+				<td>
+					<td>
+						<div class="py-2"> <span class="d-block text-muted">Payment Method: : {{ap.pay_method}}</span>  </div>
+						</td>
+						<br>
+						<td>
+							<td>
+								<div class="py-2"> <span class="d-block text-muted">Amount : {{ap.amount}}</span>  </div>
+								</td>
+								<br>
+								<td>								
+	<small class="muted"
+		 style="color:red">Make payment to book appointment</small
+	>
+	<div class="btn_container">
+		<!-- Payment Button -->
+		<button class="btn" id="pay-btn">pay</button>
+	</div>
+	</div>
+</body>
+
+<!-- Razorpay's Javascript code. -->
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+	var options = {
+	
+	// Enter the Key ID generated from the Dashboard
+	key: "{{ razorpay_merchant_key }}",
+	
+	// Amount is in currency subunits.
+	// Default currency is INR. Hence,
+	// 50000 refers to 50000 paise
+	amount: "{{ razorpay_amount }}",
+	currency: "{{ currency }}",
+	
+	// Your/store name.
+	name: "Dj Razorpay",
+	
+	// Pass the `id` obtained in the response of Step 1
+	order_id: "{{ razorpay_order_id }}",
+	callback_url: "{{ callback_url }}",
+	};
+	
+	// initialise razorpay with the options.
+	var rzp1 = new Razorpay(options);
+	
+	// add event listener to the payment button.
+	document.getElementById("pay-btn").onclick = function (e) {
+	rzp1.open();
+	e.preventDefault();
+	};
+</script>
+</html>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'header2.html' %}
+{% load static %}
+{% block content%}
+<div class="container" id="container">
+    <div class="form-container sign-in-container">
+        <form method="POST" action="{% url 'dchangepass' %}" class="form" id="login">
+            {% csrf_token %}
+            <h1 class="form__title">Change Password</h1>
+            <p style="color:red; ">{{msg}}</p>
+            <div class="form-group">
+                <label for="opassword">Old Password</label>
+                <input type="password" class="form-control form-control-user" name="opassword" placeholder="enter old password" id="email"
+                    maxlength="25" required>
+            </div>
+            <div class="form-group">
+                <label for="password">New Password</label>
+                <input type="password" class="form-control form-control-user" name="npassword" placeholder="enter new password"
+                    id="password" maxlength="25" required>
+            </div>
+            <div class="form-group">
+                <label for="rpassword">Re-Enter Password</label>
+                <input type="password" class="form-control form-control-user" name="rpassword" placeholder="re-enter new password"
+                    id="rpassword" maxlength="25" required>
+            </div>
+            <div class="form-group">
+            </div>
+            <button type="submit" class="btn btn-primary btn-user btn-block"><i class="fa fa-lock"></i> Change Password</button>
+        </form>
+    {% endblock %}

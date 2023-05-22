@@ -1,0 +1,41 @@
+{% load static %}
+<head> 
+  <link rel="stylesheet" href='{%static "plogin_css/login.css" %}'>
+
+
+</head>
+  <body>
+    <form method="POST" action="{% url 'otp' %}" class="login" id="login">
+      {% csrf_token %}
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    <center><div class="login">
+      <div class="login-screen">
+        <div class="app-title">
+          <h1>Verify Otp</h1>
+          <p style="color:red";>{{msg}}</p>
+        </div>
+  
+        <div class="login-form">
+          <div class="control-group">
+          <input type="text" class="login-field" name="uotp" placeholder="enter otp" id="login-name">
+          <label class="login-field-icon fui-user" for="login-name"></label>
+          </div>
+          <input type="hidden" name="otp" value="{{otp}}" id="">
+          <br>
+          <button class="form-control">Verify</button>
+         
+          
+        </div>
+      </div>
+    </div>
+    </center>
+    </form>
+  </body>

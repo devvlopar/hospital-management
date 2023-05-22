@@ -1,0 +1,56 @@
+{% extends 'header3.html' %}
+{% load static %}
+{% block content %}
+
+        <div class="col-xl-8">
+            <!-- Account details card-->
+            <div class="card mb-4">
+                <div class="card-header">Account Details <p style="color:red" ;>{{msg}}</p></div>
+                <div class="card-body">
+                    <form action="{% url 'ledit' %}" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <!-- Form Group (username)-->
+                      
+                        <!-- Form Row-->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (first name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="name">Name</label>
+                                <input class="form-control" name="name" id="name" type="text" placeholder="Enter your first name" value="{{lab.name}}">
+                            </div>
+                            <!-- Form Group (last name)-->
+                      
+                        <!-- Form Row        -->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (organization name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="">Email</label>
+                                <input class="form-control" name="email" id="email" type="email" placeholder="Enter your email address" value="{{lab.email}}" readonly>
+                            </div>
+                            <!-- Form Group (location)-->
+                            
+                        <!-- Form Group (email address)-->
+                        
+                        <!-- Form Row-->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (phone number)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="phone">phone</label>
+                                <input class="form-control" name="phone" id="phone" type="tel" placeholder="Enter your phone number" value="{{lab.phone}}">
+                            </div>
+                            <!-- Form Group (birthday)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="pic">Profile Pic</label>
+                                <input class="form-control" id="pic" type="file" name="lab_pic" placeholder="upload your pic" value="">
+                            </div>
+                        </div>
+                            
+                        <!-- Save changes button-->
+                        <button class="btn btn-primary" type="submit">Save changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

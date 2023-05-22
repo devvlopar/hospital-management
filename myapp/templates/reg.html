@@ -1,0 +1,31 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="{% static 'reg_css/reg.css' %}">
+</head>
+<body>
+       <div class="signup">
+        <span class="signup-text">Create Your Account</span>
+        <form method="POST" action="{% url 'register' %}" id="signup" class="signupform">
+             {% csrf_token%}
+             <p style="color:red";>{{msg}}</p>
+            <label for="name">First Name:</label>
+            <input type="text" name="fname" id="name">
+            <label for="lastname">Last Name:</label>
+            <input type="text" name="lname" id="lastname">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email">
+            <label for="Password">Password:</label>
+            <input type="Password" name="password" id="password">
+            <label for="Password">Confirm Password:</label>
+            <input type="Password" name="cpassword" id="password">
+            <label for="Phone"<label>phone</label>
+            <input type="tel" name="phone" id="password">
+            
+            <input type="submit" value="Register">
+        </form>
+    </div>
+	    <script src='{%static "reg_js/reg.js" %}'></script>
+</body>
+</html>

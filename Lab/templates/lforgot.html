@@ -1,0 +1,20 @@
+
+{% load static %}
+
+<html>
+<head>
+<link rel="stylesheet" href='{%static "pfcss/forgot.css"  %}'
+</head>
+<form method="POST" action="{% url 'lforgot' %}" class="form" id="forgotpassword">
+<div class="login">
+  <div class="login-triangle"></div>
+  {% csrf_token %}
+  <h2 class="login-header">Forgot Password</h2>
+  <p style="color:red;">{{msg}}</p>
+
+  <form class="login-container">
+    <p><input type="email" placeholder="Email" name="email"></p>
+    <p><input type="submit" value="Send password"></p>
+  </form>
+</div>
+</html>

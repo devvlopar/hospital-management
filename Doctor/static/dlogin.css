@@ -1,0 +1,47 @@
+.contenedor{
+			width: 80%;
+			margin:0 auto;
+			background: #005596;
+			height: 300px;
+			color:#FFF;
+		}
+		.contenedor > .icon{
+			width: 40%;
+			float: left;
+			text-align: center;
+			padding: 1em;
+		}
+		.contenedor > .icon > p > i{
+			font-size: 200px;
+			line-height: 200px
+		}
+		.contenedor > .login{
+			font-family: arial;
+			padding-top: 2em;
+		}
+		.contenedor > .login .inputLabel{
+			margin-bottom: 1em;
+		}
+		.contenedor > .login .inputLabel > label{
+			width: 10%;
+			display: inline-block;
+		}
+		.contenedor > .login .inputLabel > input{
+			padding: 5px 8px;
+			color:#0005596;
+			border:none;
+			border-radius: 3px;
+		}
+		.contenedor > .login .contentBtn{
+			text-align: center;
+		}
+		.contenedor > .login .contentBtn > .btn{
+			padding: 8px 13px;
+			color:#fff;
+			background: #01bbe3;
+			border:none;
+			box-shadow: 2px 1px 5px #000;
+		}
+		.contenedor > .login .contentBtn > .btn:active{
+			box-shadow:-1px -1px 5px #000;
+		}

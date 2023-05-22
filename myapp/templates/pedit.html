@@ -1,0 +1,77 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+<div >
+        <div class="col-xl-8">
+            <!-- Account details card-->
+            <div class="card mb-4" style="background-color: rgb(150, 211, 211);">
+                <div class="card-header">Account Details <p style="color:red" ;>{{msg}}</p></div>
+                <div class="card-body">
+                    <form action="{% url 'pedit' %}" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <!-- Form Group (username)-->
+                      
+                        <!-- Form Row-->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (first name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="fname">First name</label>
+                                <input class="form-control" name="fname" id="fname" type="text" placeholder="Enter your first name" value="{{uid.fname}}">
+                            </div>
+                            <!-- Form Group (last name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="lname">Last name</label>
+                                <input class="form-control" name="lname" id="lname" type="text" placeholder="Enter your last name" value="{{uid.lname}}">
+                            </div>
+                        </div>
+                        <!-- Form Row        -->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (organization name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="">Email Address</label>
+                                <input class="form-control" name="email" id="email" type="email" placeholder="Enter your email address" value="{{uid.email}}" readonly>
+                            </div>
+                            <!-- Form Group (location)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="age">Age</label>
+                                <input class="form-control" name="age" id="age" type="text" placeholder="Enter your age" value="{{uid.age}}">
+                            </div>
+                        </div>
+                        <!-- Form Group (email address)-->
+                        <div class="mb-3">
+                            <label class="small mb-1" for="address">Address</label>
+                            <input class="form-control" name="address" id="address" type="text" placeholder="Enter your address" value="{{uid.address}}">
+                        </div>
+                        <!-- Form Row-->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (phone number)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="phone">Phone number</label>
+                                <input class="form-control" name="phone" id="phone" type="tel" placeholder="Enter your phone number" value="{{uid.phone}}" maxlength="10">
+                            </div>
+                            <!-- Form Group (birthday)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="pic">Profile Pic</label>
+                                <input class="form-control" id="pic" type="file" name="pic" placeholder="upload your pic" value="">
+                            </div>
+                        </div>
+                            <div class="col-md-6">
+                                <fieldset data-role="controlgroup">
+                                    <legend>Choose your gender:</legend>
+                                      <label for="male">Male</label>
+                                      <input type="radio" name="gender" id="male" value="male" checked>
+                                      <label for="female">Female</label>
+                                      <input type="radio" name="gender" id="female" value="female">
+                                    </fieldset>
+                        </div> 
+                        <!-- Save changes button-->
+                        <button class="btn btn-primary" type="submit">Save changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+{% endblock %}

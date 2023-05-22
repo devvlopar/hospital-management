@@ -1,0 +1,147 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="{%static 'appoint.css' %}">
+
+    <title>Consultation</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{%static 'main.css' %}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div   style="background-color: rgb(150, 211, 211);">
+
+    <div class="container text-center position-relative">
+       
+        <h1>24/7 Care is available<p style="color:red" ;>{{msg}}</p></h1>
+        <h2>Life Care</h2>
+
+    </div>
+    </section>
+    <!-- End Hero -->
+    <div class="container mt-4 p-4">
+        <div class="row">
+            <div class="col-md-8">
+                <h2 class="text-center my-4">
+                    Find Consultations
+                </h2>
+                <form action="{% url 'lappointment' %}" method="POST">
+                    {% csrf_token %}
+                   
+                    <!---->
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-lg-4" for="test" aria-placeholder="Select Tests">
+                            Tests
+                        </label>
+
+                        <div class="col-sm-8 col-lg-8">
+                            <select name="test" class="form-control" 
+                                required="required">
+                                {% for one in test %}
+                                <option value="{{one.id}}">{{one.test_name}}</option>
+                                {% endfor %}
+                               
+                            </select>
+                        </div>
+                    </div>
+
+                    
+                    <!---->
+
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-lg-4">
+                            Date
+                        </label>
+                        <div class="col-sm-8 col-lg-8">
+                            <input type="date" id="date" name="date" class="form-control" required>
+                        </div>
+                    </div>
+                    <!---->
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-lg-4">
+                            Time
+                        </label>
+                        <div class="col-sm-8 col-lg-8">
+                            <select id="time" name="time" class="form-control" required>
+                                <option value="8:00 to 9:00">8:00 am to 9:00 am</option>
+                                <option value="9:00 to 10:00">9:00 am to 10:00 am</option>
+                                <option value="10:00 to 1:00">10:00 am to 1:00 pm</option>
+                                <option value="1:00 to 3:00">1:00 pm to 3:00 pm</option>
+                                <option value="03:00 to 05:00">3:00 pm to 5:00 pm</option>
+                                <option value="05:00 to 07:00">5:00 pm to 7:00 pm</option>
+                                <option value="07:00 to 08:00">7:00 pm to 8:00 pm</option>
+                                
+                            </select>
+                        </div>
+                    </div>
+                    <!---->
+              
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-lg-4">
+                            Amount
+                        </label>
+                        <div class="col-sm-8 col-lg-8">
+                            <fieldset data-role="controlgroup">
+                                <legend name="pay_method">payment mode:</legend>
+                                  <label for="online">Online</label>
+                                  <input type="radio" name="pay_method" id="online" value="online" checked>
+                                  <label for="Offline">Offline</label>
+                                  <input type="radio" name="pay_method" id="offline" value="offline">
+                                </fieldset> 
+                        </div>
+                    </div>
+                    <!---->
+                    <div class="form-group row justify-content-end">
+                        <div class="col-sm-5">
+                            <button type="submit" class="btn btn-form">
+                                Confirm
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="col-md-6">
+                <h2 id="services" class="text-center my-4"></h2>
+                <ul id="consultations" class="list-group"></ul>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src='{% static "appointment_js/appoint.js" %}'></script>
+    <script>
+    //     function getspe(value){
+    //         data = {
+    //             'value':value 
+    //         }
+    //         $.ajax({
+    //             url : "{% url 'getspe' %}",
+    //             method : 'GET',
+    //             data : data,
+
+    //             success : function(response){
+    //                 console.log(response.data)
+    //                 data1 = response.data
+    //                 let s = ''
+    //                 for(i=0;i < data1.length; i++){
+    //                     s += '<option value="'+ String(data1[i].id)+'">'+ String(data1[i].doctorname) +'</option>'
+    //                     // console.log('hello')
+    //                 }
+    //                 $('#doc').html(s)
+    //             }
+                 
+    //         })
+    //     }
+    // </script>
+    
+{% endblock %}

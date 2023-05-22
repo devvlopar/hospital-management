@@ -1,0 +1,96 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+
+<head>
+    <!-- <h1><span class="blue">&lt;</span>appointment history<span class="blue">&gt;</span> <span class="yellow"></pan></h1>
+    <h2>Created with love by <a href="" target="_blank">Adarsh khopkar</a></h2>
+     -->
+    <style>
+ #customers {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    #customers td,
+    #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    #customers tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    #customers tr:hover {
+        background-color: #ddd;
+    }
+
+    #customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #3c8ec2;
+        color: white;
+    }
+</style>
+
+    </head>
+    <h1 style="color:#009CFF">Appointments</h1>
+    {% csrf_token %}
+    <table id="customers">
+        <thead>
+            <tr>
+                <th>Patient Name</th>
+                <th>Doctor Name</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Pay Method</th>
+                <th>Pay Id</th>
+                <th>Amount</th>
+                <th>Verify</th>
+                <th>Pay At</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+        
+            {% for one in appointments %}
+            <tr>
+                <td>{{one.patient.fname}} {{one.patient.lname}}</td>
+                <td>{{one.doctor.doctorname}}</td>
+                <td>{{one.date}}</td>
+                <td>{{one.time}}</td>
+                <td>{{one.pay_method}}</td>
+                <td>{{one.pay_id}}</td>
+                <td>{{one.amount}}</td>
+                <td>{{one.verify}}</td>
+                <td>{{one.pay_at}}</td>
+                
+            </tr>
+            {% endfor %}
+       
+        </tbody>
+    </table>
+    <script>
+    //   function del(btnid){
+    //     $.ajax({
+    //       url : "{ url 'delete-appointment'  }",
+    //       method: 'POST',
+    //       data:{
+    //         id : btnid,
+    //         csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+    //       },
+    //       success: function(response){
+    //         alert(response.msg)
+              
+
+    //       }
+    //     })
+        
+    //   }
+
+      </script>
+
+    {% endblock %}
